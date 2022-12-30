@@ -1,151 +1,151 @@
 **WARNING: this README has been translated into English using Google Translate for ease of understanding - it may not make perfect sense**
 ![PROJECT_PHOTO](https://github.com/AlexGyver/NixieClock_v2/blob/master/proj_img.jpg)
-# Часы на газоразрядных индикаторах и Arduino
-* [Описание проекта](#chapter-0)
-* [Папки проекта](#chapter-1)
-* [Схемы подключения](#chapter-2)
-* [Материалы и компоненты](#chapter-3)
-* [Как скачать и прошить](#chapter-4)
+# Clock on gas discharge indicators and Arduino
+* [Project Description](#chapter-0)
+* [Project folders](#chapter-1)
+* [Connection diagrams](#chapter-2)
+* [Materials and components](#chapter-3)
+* [How to download and flash](#chapter-4)
 * [FAQ](#chapter-5)
-* [Полезная информация](#chapter-6)
+* [Useful information](#chapter-6)
 [![AlexGyver YouTube](http://alexgyver.ru/git_banner.jpg)](https://www.youtube.com/channel/UCgtAOyEQdAyjvm9ATCi_Aig?sub_confirmation=1)
 
-<a id="chapter-0"></a>
-## Описание проекта
-Часы на советских газоразрядных индикаторах под управлением платформы Arduino, версия 2. 
-Страница проекта на сайте: https://alexgyver.ru/nixieclock_v2/
 
-Решил я сделать максимально простой и доступный проект часов на газоразрядных индикаторах и Arduino! Односторонняя плата, выводные компоненты, никакой жести!
+## Description of the project
+Clock on Soviet gas-discharge indicators under the control of the Arduino platform, version 2.
+Project page on the website: https://alexgyver.ru/nixieclock_v2/
 
-Платы:
-- Габариты платы меньше 100х100мм, то есть заказать 10 таких плат у китайцев будет стоить $2 без учёта доставки
-- Плата односторонняя, её без проблем можно сделать классическим ЛУТом!
-- Все компоненты – выводные, припаяет даже новичок
-- Количество компонентов сведено к минимуму!
-- На данный момент в проекте есть платы под индикаторы ИН-12 и ИН-14, возможно будут сделаны и другие
-- Система состоит из двух плат: нижней (вся управляющая электроника) и верхней (лампы и светодиоды подсветки)
-- Нижних плат два варианта: обычная (4 оптопары, точка – светодиод) и с дополнительной оптопарой под неоновую точку (5 оптопар, точка – неонка)
-- У плат ИН-14, ИН-12, ИН-12_перевертыш нижняя часть одинаковая! Части плат взаимозаменяемы. Нижняя плата отличается только у ИН-14_неон  
+I decided to make the simplest and most affordable clock project on gas discharge indicators and Arduino! Single-sided board, output components, no tin!
 
-Хардварные фишки:
-- Сердце платы – полноразмерная Arduino NANO, это означает простую сборку и прошивку
-- Питание всей схемы – 5 Вольт
-- Генератор высокого напряжения раскачивается ШИМ каналом Arduino
-- Напряжение генератора подстраивается резистором с крутилкой
-- Время задаёт RTC DS3231
-- 3 кнопки для настройки времени и будильника
-- Пищалка для будильника
-- Подсветка ламп индикаторов
-- Проект основан на плате Железнякова Андрея. Спасибо! Ссылка на проект: https://goo.gl/xTVQWP  
+Boards:
+- The dimensions of the board are less than 100x100mm, that is, ordering 10 such boards from the Chinese will cost $ 2, excluding delivery
+- The board is one-sided, it can be made into a classic LUT without any problems!
+- All components are output, even a beginner can solder
+- The number of components is reduced to a minimum!
+- At the moment, the project has boards for indicators IN-12 and IN-14, perhaps others will be made
+- The system consists of two boards: the bottom (all control electronics) and the top (lamps and backlight LEDs)
+- There are two options for the lower boards: normal (4 optocouplers, dot - LED) and with an additional optocoupler for a neon dot (5 optocouplers, dot - neon)
+- The boards IN-14, IN-12, IN-12_changeling have the same lower part! Parts of the boards are interchangeable. The bottom board is different only for IN-14_neon  
 
-Софтварные фишки:
-- “Перебор” цифр, не дающий индикаторам окисляться
-- Режим будильника
-- Плавное изменение яркости точки и подсветки (эффект “дыхания”)
-	+ Расширенные настройки плавности дыхания
-- Настройка яркости цифр, “точки” и подсветки ламп
-	+ Два режима яркости от времени суток
-- Разные режимы переключения индикаторов
-	+ Плавное угасание/разгарание
-	+ Перебор цифр
-	+ Перебор катодов
+Hardware chips:
+- The heart of the board is a full size Arduino NANO, which means easy assembly and firmware
+- Power supply of the entire circuit - 5 Volts
+- The high voltage generator is driven by the Arduino PWM channel
+- The generator voltage is adjusted by a resistor with a twist
+- Time sets RTC DS3231
+- 3 buttons to set time and alarm
+- Alarm buzzer
+- Illumination of indicator lamps
+- The project is based on Andrey Zheleznyakov's board. Thank you! Link to the project: https://goo.gl/xTVQWP  
 
-<a id="chapter-1"></a>
-## Папки
-**ВНИМАНИЕ! Если это твой первый опыт работы с Arduino, читай [инструкцию](#chapter-4)**
-- **libraries** - библиотеки проекта. Заменить имеющиеся версии (в этом проекте внешних библиотек нет)
-- **firmware** - прошивки для Arduino
-- **schemes** - схемы подключения компонентов
+Software features:
+- “Search” of numbers, preventing the indicators from oxidizing
+- Alarm mode
+- Smooth change in the brightness of the dot and backlight ("breathing" effect)
+	+ Advanced settings for smooth breathing
+- Setting the brightness of numbers, “points” and lamp illumination
+	+ Two brightness modes depending on the time of day
+- Different modes of switching indicators
+	+ Smooth fade in/out
+	+ Numeric brute force
+	+ Enumeration of cathodes
 
-<a id="chapter-2"></a>
-## Схемы
-Платы:
-- IN-14 - для индикаторов ИН-14 со светодиодной точкой https://easyeda.com/editor#id=1d7c359f88254c9d9c7ce9de914bd4c5
-- IN-14_mini_neon_dot - для IN-14 с точкой - индикатором (+1 оптопара и резистор) https://easyeda.com/editor#id=be6c3cd8d42a414b8a8e5b9bdd0401bf
-- IN-12 - для IN-12, цифры перевёрнуты вверх ногами (если смотреть на плату) https://easyeda.com/editor#id=1d7c359f88254c9d9c7ce9de914bd4c5
-- IN-12_turned - для IN-12, цифры повёрнуты правильно https://easyeda.com/editor#id=aea22745380847b5beeca679820e7565  
 
-Открыв плату по ссылке, её можно экспортировать в PDF, PNG или Altium (иконка папки слева сверху/экспорт) для изготовления ЛУТом или другими способами!  
-При заказе плат у китайцев не забудьте указать в комментарии "Please make V-cut along middle thick horizontal outline" для надреза платы по средней линии  
-**Гербер файлы уже есть в архиве!**
+## Folders
+**ATTENTION! If this is your first experience with Arduino, read the [manual](#chapter-4)**
+- **libraries** - project libraries. Replace existing versions (there are no external libraries in this project)
+- **firmware** - firmware for Arduino
+- **schemes** - component connection diagrams
+
+
+## Scheme
+Boards:
+- IN-14 - for indicators IN-14 with LED dot https://easyeda.com/editor#id=1d7c359f88254c9d9c7ce9de914bd4c5
+- IN-14_mini_neon_dot - for IN-14 with dot - indicator (+1 optocoupler and resistor) https://easyeda.com/editor#id=be6c3cd8d42a414b8a8e5b9bdd0401bf
+- IN-12 - for IN-12, the numbers are upside down (when looking at the board) https://easyeda.com/editor#id=1d7c359f88254c9d9c7ce9de914bd4c5
+- IN-12_turned - for IN-12, numbers are turned correctly https://easyeda.com/editor#id=aea22745380847b5beeca679820e7565  
+
+By opening the board via the link, it can be exported to PDF, PNG or Altium (folder icon on the top left / export) for manufacturing by LUT or other methods!  
+When ordering boards from the Chinese, do not forget to indicate in the comment "Please make V-cut along middle thick horizontal outline" to cut the board along the middle line  
+**Gerber files are already in the archive!**
 ![SCHEME](https://github.com/AlexGyver/NixieClock_v2/blob/master/schemes/drawing.jpg)
 
-<a id="chapter-3"></a>
-## Материалы и компоненты
-### Ссылки оставлены на магазины, с которых я закупаюсь уже не один год
-- Arduino NANO Rev3.0 https://ali.ski/670JrC  https://ali.ski/_7IUJ
+
+## Materials and components
+### Links are left to stores from which I have been buying for more than one year
+- Arduino NANO Rev3.0 https://ali.ski/670JrC https://ali.ski/_7IUJ
 - RTC DS3231 https://ali.ski/gOYYG0
-- Пищалка https://ali.ski/8LEYlE
-- Гнёзда на плату https://www.chipdip.ru/product/pbs-40
-- Рейка штыревая https://www.chipdip.ru/product/pls-40
-- Конденсатор электролитический 4,7 мкФ 350V	https://www.chipdip.ru/product0/33635
-- Резистор подстроечный 470 кОм (можно 500 кОм)	https://www.chipdip.ru/product/3362p-1-504
-- Индуктивность 220 мкГн (uH)	https://www.chipdip.ru/product/ec24-221k
-- Диод HER106	https://www.chipdip.ru/product/her106
-- Транзистор IRF840PBF	https://www.chipdip.ru/product/irf840
-- Оптопара TLP627(F) DIP-4	https://www.chipdip.ru/product/tlp627
-- Дешифратор К155ИД1	https://www.chipdip.ru/product/k155id1
-- Резисторы 0,25 Вт для версии ИН12/ИН14 со светодиодной точкой
-	- 150 Ом
-	- 470 Ом
-	- 10 кОм	
-	- 100 Ом - 3шт	
-- Резисторы 0,25 Вт для версии ИН14 с неоновой точкой
-	- 200 кОм
-	- 470 Ом
-	- 10 кОм	
-	- 100 Ом - 3шт
+- Squeaker https://ali.ski/8LEYlE
+- Sockets for the board https://www.chipdip.ru/product/pbs-40
+- Pin rail https://www.chipdip.ru/product/pls-40
+- Electrolytic capacitor 4.7 uF 350V https://www.chipdip.ru/product0/33635
+- Trimmer resistor 470 kOhm (can be 500 kOhm) https://www.chipdip.ru/product/3362p-1-504
+- Inductance 220 uH (uH) https://www.chipdip.ru/product/ec24-221k
+- Diode HER106 https://www.chipdip.ru/product/her106
+- Transistor IRF840PBF https://www.chipdip.ru/product/irf840
+- Optocoupler TLP627(F) DIP-4 https://www.chipdip.ru/product/tlp627
+- Decoder K155ID1 https://www.chipdip.ru/product/k155id1
+- Resistors 0.25 W for version IN12/IN14 with LED dot
+	- 150 Ohm
+	- 470 Ohm
+	- 10 kOhm	
+	- 100 Ohm - 3pcs	
+- Resistors 0.25 W for version IN14 with neon dot
+	- 200 kOhm
+	- 470 Ohm
+	- 10 kOhm	
+	- 100 Ohm - 3pcs
 
-## Вам скорее всего пригодится
-* [Всё для пайки (паяльники и примочки)](http://alexgyver.ru/all-for-soldering/)
-* [Недорогие инструменты](http://alexgyver.ru/my_instruments/)
-* [Все существующие модули и сенсоры Arduino](http://alexgyver.ru/arduino_shop/)
-* [Электронные компоненты](http://alexgyver.ru/electronics/)
-* [Аккумуляторы и зарядные модули](http://alexgyver.ru/18650/)
+## You will most likely need
+* [All for soldering (soldering irons and gadgets)](http://alexgyver.ru/all-for-soldering/)
+* [Inexpensive tools](http://alexgyver.ru/my_instruments/)
+* [All existing Arduino modules and sensors](http://alexgyver.ru/arduino_shop/)
+* [Electronic components](http://alexgyver.ru/electronics/)
+* [Batteries and charging modules](http://alexgyver.ru/18650/)
 
-<a id="chapter-4"></a>
-## Как скачать и прошить
-* [Первые шаги с Arduino](http://alexgyver.ru/arduino-first/) - ультра подробная статья по началу работы с Ардуино, ознакомиться первым делом!
-* Скачать архив с проектом
-> На главной странице проекта (где ты читаешь этот текст) вверху справа зелёная кнопка **Clone or download**, вот её жми, там будет **Download ZIP**
-* Установить библиотеки в  
+
+## How to download and flash
+* [First steps with Arduino] (http://alexgyver.ru/arduino-first/) - an ultra detailed article on getting started with Arduino, read it first!
+* Download the archive with the project
+> On the main page of the project (where you are reading this text) at the top right there is a green button **Clone or download**, click it, there will be **Download ZIP**
+* Install libraries in  
 `C:\Program Files (x86)\Arduino\libraries\` (Windows x64)  
 `C:\Program Files\Arduino\libraries\` (Windows x86)
-* **Подключить внешнее питание 5 Вольт**
-* Подключить Ардуино к компьютеру
-* Запустить файл прошивки (который имеет расширение .ino)
-* Настроить IDE (COM порт, модель Arduino, как в статье выше)
-* Настроить что нужно по проекту
-* Нажать загрузить
-* Пользоваться  
+* **Connect external power supply 5 Volt**
+* Connect Arduino to computer
+* Run the firmware file (which has the .ino extension)
+* Configure IDE (COM port, Arduino model, as in the article above)
+* Customize what you need for the project
+* Click download
+* Enjoy  
 
-## Настройки в коде
+## Settings in code
 
 	
-<a id="chapter-5"></a>
-## FAQ
-### Основные вопросы
-В: Как скачать с этого грёбаного сайта?  
-О: На главной странице проекта (где ты читаешь этот текст) вверху справа зелёная кнопка **Clone or download**, вот её жми, там будет **Download ZIP**
 
-В: Скачался какой то файл .zip, куда его теперь?  
-О: Это архив. Можно открыть стандартными средствами Windows, но думаю у всех на компьютере установлен WinRAR, архив нужно правой кнопкой и извлечь.
+##FAQ
+### Main questions
+Q: How to download from this fucking site?  
+A: On the main page of the project (where you are reading this text) there is a green button **Clone or download** at the top right, click it, there will be **Download ZIP**
 
-В: Я совсем новичок! Что мне делать с Ардуиной, где взять все программы?  
-О: Читай и смотри видос http://alexgyver.ru/arduino-first/
+Q: Some .zip file was downloaded, where is it now?  
+A: This is an archive. You can open it using standard Windows tools, but I think everyone has WinRAR installed on their computer, you need to right-click the archive and extract it.
 
-В: Вылетает ошибка загрузки / компиляции!
-О: Читай тут: https://alexgyver.ru/arduino-first/#step-5
+Q: I'm a total newbie! What should I do with Arduino, where can I get all the programs?  
+A: Read and watch the video http://alexgyver.ru/arduino-first/
 
-В: Сколько стоит?  
-О: Ничего не продаю.
+Q: Loading / compilation error crashes!
+A: Read here: https://alexgyver.ru/arduino-first/#step-5
 
-### Вопросы по этому проекту
+Q: How much does it cost?  
+A: I don't sell anything.
 
-<a id="chapter-6"></a>
-## Полезная информация
-* [Мой сайт](http://alexgyver.ru/)
-* [Основной YouTube канал](https://www.youtube.com/channel/UCgtAOyEQdAyjvm9ATCi_Aig?sub_confirmation=1)
-* [YouTube канал про Arduino](https://www.youtube.com/channel/UC4axiS76D784-ofoTdo5zOA?sub_confirmation=1)
-* [Мои видеоуроки по пайке](https://www.youtube.com/playlist?list=PLOT_HeyBraBuMIwfSYu7kCKXxQGsUKcqR)
-* [Мои видеоуроки по Arduino](http://alexgyver.ru/arduino_lessons/)
+### Questions about this project
+
+
+## Helpful information
+* [My site](http://alexgyver.ru/)
+* [Main YouTube channel](https://www.youtube.com/channel/UCgtAOyEQdAyjvm9ATCi_Aig?sub_confirmation=1)
+* [YouTube channel about Arduino](https://www.youtube.com/channel/UC4axiS76D784-ofoTdo5zOA?sub_confirmation=1)
+* [My soldering video tutorials](https://www.youtube.com/playlist?list=PLOT_HeyBraBuMIwfSYu7kCKXxQGsUKcqR)
+* [My video tutorials on Arduino](http://alexgyver.ru/arduino_lessons/)
