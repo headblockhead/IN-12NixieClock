@@ -1,3 +1,4 @@
+**WARNING: this README has been translated into English using Google Translate for ease of understanding - it may not make perfect sense**
 ![PROJECT_PHOTO](https://github.com/AlexGyver/NixieClock_v2/blob/master/proj_img.jpg)
 # Часы на газоразрядных индикаторах и Arduino
 * [Описание проекта](#chapter-0)
