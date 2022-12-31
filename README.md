@@ -1,15 +1,16 @@
 **WARNING: this README has been translated into English using Google Translate for ease of understanding - it may not make perfect sense**
+
+
 ![PROJECT_PHOTO](./images/proj_img.jpg)
 # Clock on gas discharge indicators and Arduino
-* [Project Description](#chapter-0)
-* [Project folders](#chapter-1)
-* [Connection diagrams](#chapter-2)
-* [Materials and components](#chapter-3)
-* [How to download and flash](#chapter-4)
-* [FAQ](#chapter-5)
-* [Useful information](#chapter-6)
+* [Project Description](#description-of-the-project)
+* [Project folders](#folders)
+* [Connection diagrams](#scheme)
+* [Materials and components](#materials-and-components)
+* [How to download and flash](#how-to-download-and-flash)
+* [FAQ](#faq)
+* [Useful information](#helpful-information)
 [![AlexGyver YouTube](http://alexgyver.ru/git_banner.jpg)](https://www.youtube.com/channel/UCgtAOyEQdAyjvm9ATCi_Aig?sub_confirmation=1)
-
 
 ## Description of the project
 Clock on Soviet gas-discharge indicators under the control of the Arduino platform, version 2.
@@ -119,11 +120,8 @@ When ordering boards from the Chinese, do not forget to indicate in the comment 
 * Click download
 * Enjoy  
 
-## Settings in code
+## FAQ
 
-	
-
-##FAQ
 ### Main questions
 Q: How to download from this fucking site?  
 A: On the main page of the project (where you are reading this text) there is a green button **Clone or download** at the top right, click it, there will be **Download ZIP**
