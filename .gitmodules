@@ -1,0 +1,9 @@
+[submodule "libraries/EEPROMex"]
+	path = libraries/EEPROMex
+	url = git@github.com:thijse/Arduino-EEPROMEx.git
+[submodule "libraries/GyverButton"]
+	path = libraries/GyverButton
+	url = git@github.com:GyverLibs/GyverButton.git
+[submodule "libraries/GyverTimer"]
+	path = libraries/GyverTimer
+	url = git@github.com:GyverLibs/GyverTimer.git
