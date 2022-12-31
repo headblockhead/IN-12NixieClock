@@ -1,5 +1,5 @@
 **WARNING: this README has been translated into English using Google Translate for ease of understanding - it may not make perfect sense**
-![PROJECT_PHOTO](https://github.com/AlexGyver/NixieClock_v2/blob/master/proj_img.jpg)
+![PROJECT_PHOTO](./images/proj_img.jpg)
 # Clock on gas discharge indicators and Arduino
 * [Project Description](#chapter-0)
 * [Project folders](#chapter-1)
@@ -68,7 +68,7 @@ Boards:
 By opening the board via the link, it can be exported to PDF, PNG or Altium (folder icon on the top left / export) for manufacturing by LUT or other methods!  
 When ordering boards from the Chinese, do not forget to indicate in the comment "Please make V-cut along middle thick horizontal outline" to cut the board along the middle line  
 **Gerber files are already in the archive!**
-![SCHEME](https://github.com/AlexGyver/NixieClock_v2/blob/master/schemes/drawing.jpg)
+![SCHEME](./images/drawing.jpg)
 
 
 ## Materials and components
